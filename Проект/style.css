@@ -1,0 +1,248 @@
+:root {
+    --bg-color: #ffffff;
+    --text-color: #222;
+    --card-bg: #f0f4ff;
+    --accent-color: #4b6cb7;
+    --table-header: #dce2f0;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    margin: 0;
+    padding: 20px;
+}
+
+h1, h2, h3 {
+    color: var(--accent-color);
+}
+
+a.btn, button {
+    display: inline-block;
+    background-color: var(--accent-color);
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    text-decoration: none;
+    margin-top: 10px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+a.btn:hover, button:hover {
+    background-color: #3f51b5;
+}
+
+.event-card {
+    background-color: var(--card-bg);
+    border-radius: 12px;
+    padding: 25px;
+    margin: 20px auto;
+    border-left: 6px solid var(--accent-color);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    width: 100%;
+    max-width: 900px;
+    box-sizing: border-box;
+}
+
+.event-card:hover {
+    transform: scale(1.01);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+}
+
+table th, table td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+}
+
+table th {
+    background-color: var(--table-header);
+    color: var(--text-color);
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="date"],
+textarea,
+select {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 16px;
+}
+
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 20px;
+    box-sizing: border-box;
+}
+
+/* Адаптив под телефон */
+@media (max-width: 768px) {
+    .container {
+        padding: 0 10px;
+    }
+
+    header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+    .btn {
+        width: 100%;
+        box-sizing: border-box;
+        text-align: center;
+    }
+
+    table {
+        font-size: 14px;
+        overflow-x: auto;
+        display: block;
+        white-space: nowrap;
+    }
+
+    table thead {
+        display: none;
+    }
+
+    table tr {
+        display: block;
+        margin-bottom: 10px;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        padding: 10px;
+        background-color: #f9f9f9;
+    }
+
+    table td {
+        display: flex;
+        justify-content: space-between;
+        padding: 4px 0;
+    }
+
+    table td::before {
+        content: attr(data-label);
+        font-weight: bold;
+        color: #444;
+    }
+
+    h1, h2, h3 {
+        font-size: 1.2em;
+    }
+}
+
+/* Кнопка переключения темы */
+.theme-toggle-btn {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background-color: var(--accent-color);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+    font-size: 20px;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    transition: background-color 0.3s, transform 0.2s;
+    z-index: 1000;
+}
+
+.theme-toggle-btn:hover {
+    background-color: #6b5cd7;
+    transform: scale(1.05);
+}
+
+/* Сообщения об ошибках */
+.error-box {
+    background-color: #ffebee;
+    border: 1px solid #f44336;
+    color: #c62828;
+    padding: 12px 16px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    font-size: 15px;
+    line-height: 1.5;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.error-box ul {
+    margin: 0;
+    padding-left: 20px;
+}
+
+.error-box li {
+    margin: 5px 0;
+}
+
+#period-form {
+    gap: 10px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+/* 🌙 ТЁМНАЯ ТЕМА */
+body.dark {
+    --bg-color: #121212;
+    --text-color: #e0e0e0;
+    --card-bg: #1e1e2e;
+    --accent-color: #7f5af0;
+    --table-header: #2d2d3a;
+}
+
+/* Кнопки в тёмной теме */
+body.dark .btn,
+body.dark a.btn {
+    background-color: var(--accent-color);
+}
+
+body.dark .btn:hover,
+body.dark a.btn:hover {
+    background-color: #6b5cd7;
+}
+
+body.dark table td,
+body.dark table th {
+    color: var(--text-color);
+}
+
+/* Ошибки */
+body.dark .error-box {
+    background-color: #2e1c1c;
+    border-color: #e57373;
+    color: #ff8a80;
+}
+
+/* Таблицы */
+body.dark table td {
+    background-color: #1a1a1a;
+}
+
+/* Дополнительно — хедер, если есть */
+body.dark header {
+    background-color: #1e1e2e;
+}
+
+ .editing {
+        background-color: #e3f2fd; /* нежно-голубой фон */
+        transition: background-color 0.3s ease;
+    }
